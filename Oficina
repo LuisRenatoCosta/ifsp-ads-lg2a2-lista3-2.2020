@@ -1,0 +1,69 @@
+package lista3;
+import java.util.ArrayList;
+public class Oficina extends OrdemDeServico{
+    
+    //Atributos
+    private ArrayList<OrdemDeServico> ordensServico = new ArrayList();
+    private OrdemDeServico found;
+    
+    //Método Construtor
+    public Oficina() {}
+    
+    //Métodos Getters e Setters
+    public ArrayList<OrdemDeServico> getOrdensServico() {
+        return ordensServico;}
+    public void setOrdensServico(ArrayList<OrdemDeServico> ordensServico) {
+        this.ordensServico = ordensServico;}
+    
+    //Métodos complementares
+    public void adicionaOS(OrdemDeServico os){
+        ordensServico.add(os);}
+    
+    public OrdemDeServico buscaOSServico(int codigo) {
+	OrdemDeServico i;
+		this.ordensServico.forEach((ordemServico)->{
+			if(ordemServico.getCodigo() == codigo) {
+				this.found=ordemServico;
+				return;
+			}
+		});
+		if(this.found != null) {
+			i = this.found;
+                        this.found=null;
+                        System.out.println("Existe esse serviço");
+			return i;
+		}
+		System.out.println("Não existe esse mecânico");
+		return null;
+                }
+    
+    public OrdemDeServico buscaOSServico(int codigo) {
+	OrdemDeServico i;
+		this.ordensServico.forEach((ordemServico)->{
+			if(ordemServico.getCodigo() == codigo) {
+				this.found=ordemServico;
+				return;
+			}
+		});
+		if(this.found != null) {
+			i = this.found;
+                        this.found=null;
+                        System.out.println("Existe esse serviço");
+			return i;
+		}
+		System.out.println("Não existe esse mecânico");
+		return null;
+                }
+    
+    
+    
+    /*public ArrayList<OrdemDeServico> buscaOSServico(String cpf){
+        if (mecanicos.contains(cpf){
+            })
+        return ;}
+    */
+    //toString
+    @Override
+    public String toString() {
+        return "Oficina{" + "ordensServico=" + ordensServico + '}';
+}
