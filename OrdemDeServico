@@ -1,0 +1,93 @@
+package lista3;
+import java.util.ArrayList;
+public class OrdemDeServico {
+    //Atributos
+    private int codigo;
+    private Cliente cliente;
+    private double total;
+    private ArrayList<Servico> servicos = new ArrayList<Servico>();
+    private ArrayList<Mecanica> mecanicos = new ArrayList<Mecanica>();
+    private boolean found;
+    int i = 5;
+    
+    //Método Construtor
+    public OrdemDeServico(int codigo, Cliente cliente) {
+        this.codigo = codigo;
+        this.cliente = cliente;}
+    
+    //Métodos Getters e Setters
+    public int getCodigo() {
+        return codigo;}
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;}
+    public Cliente getCliente() {
+        return cliente;}
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;}
+    public ArrayList<Servico> getServicos() {
+        return servicos;}
+    public void setServicos(ArrayList<Servico> servicos) {
+        this.servicos = servicos;}
+    public ArrayList<Mecanica> getMecanicos() {
+        return mecanicos;}
+    public void setMecanicos(ArrayList<Mecanica> mecanicos) {
+        this.mecanicos = mecanicos;}
+    
+    //Métodos complementares
+    public void adicionaServico(Servico servico){
+        servicos.add(servico);}
+    public void adicionaMecanica(Mecanica mecanica){
+        mecanicos.add(mecanica);}
+    
+    
+    public void calculaValorTotal(){
+        servicos.forEach((servico)->{
+            this.total = this.total + servico.getValor();});
+        System.out.println(this.total);}
+        
+
+    
+    public boolean possuiServico(int codigo) {
+	
+		this.servicos.forEach((servico)->{
+			if(servico.getCodigo()==codigo) {
+				this.found=true;
+				
+				return;
+			}
+		});
+		
+		if(this.found) {
+			this.found=false;
+                        System.out.println("Existe esse serviço");
+			return true;
+		}
+		System.out.println("Não existe esse serviço");
+		return false;
+                }
+   
+    
+    public boolean possuiMecanico(String cpf) {
+	
+		this.mecanicos.forEach((mecanico)->{
+			if(mecanico.getCPF().equals(cpf)) {
+				this.found=true;
+				return;
+			}
+		});
+		if(this.found) {
+			this.found=false;
+                        System.out.println("Existe esse mecânico");
+			return true;
+		}
+		System.out.println("Não existe esse mecânico");
+		return false;
+                }
+    
+    
+    
+    //toString
+    @Override
+    public String toString() {
+        return "OrdemDeServico{" + "codigo=" + codigo + ", cliente=" + cliente + ", servicos=" + servicos + ", mecanicos=" + mecanicos + '}';}  
+}
