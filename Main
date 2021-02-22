@@ -1,0 +1,20 @@
+package lista3;
+import java.util.ArrayList;
+public class Lista3 {
+
+    public static void main(String[] args) {
+        
+        Cliente c1 = new Cliente("Victor", "1234678910", "98624625625");
+        Servico s1 = new Servico(1, "Troca de embreagem", 500.00);
+        Servico s2 = new Servico(2, "Troca pneu", 800.00);
+        Mecanica m1 = new Mecanica("Ronaldo", "999999", "OOOO");
+        OrdemDeServico os1 = new OrdemDeServico(1, c1);
+        
+        os1.adicionaServico(s1);
+        os1.adicionaServico(s2);
+        os1.adicionaMecanica(m1);
+        os1.calculaValorTotal();
+        
+        os1.possuiServico(1);
+        
+}}
