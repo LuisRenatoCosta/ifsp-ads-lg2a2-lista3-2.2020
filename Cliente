@@ -1,0 +1,24 @@
+package lista3;
+
+public class Cliente extends Pessoa {
+    
+    //Atributos
+    private String telefone;
+    
+    //Método Construtor;
+    public Cliente(String nome, String cpf, String telefone){
+        super(nome, cpf);
+        this.telefone = telefone;}
+    
+    //Métodos Getters e Setters
+    public String getTelefone() {
+        return telefone;}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;}
+
+    //Método toString
+    @Override
+    public String toString() {
+        return "Cliente{" + "telefone=" + telefone + '}';}
+
+}
